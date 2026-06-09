@@ -9,64 +9,127 @@
 <body>
 
     <div class="container">
-        <h1>STRUKTUR ORGANISASI<br>SMAIT PUTERI ALHANIF</h1>
+        <h1 class="main-title">STRUKTUR ORGANISASI<br>SMAIT PUTERI ALHANIF</h1>
         
-        <div class="organigram-wrapper">
-            <!-- SVG UNTUK GARIS PENGHUBUNG INTERAKTIF -->
-            <svg class="lines-container" id="linesSvg">
-                <!-- Garis Komando (Solid) -->
-                <path d="M 330,35 L 330,80" class="line line-solid" data-type="Garis Komando/Instruksi" data-info="Jalur instruksi langsung dari Yayasan Al-Hanif kepada Mudiroh Pendidikan Menengah." />
-                <path d="M 330,125 L 330,225" class="line line-solid" data-type="Garis Komando/Instruksi" data-info="Jalur instruksi dari Mudiroh ke Kepala Sekolah SMAIT Puteri." />
-                <path d="M 420,335 L 580,335 L 580,360" class="line line-solid" data-type="Garis Komando/Instruksi" data-info="Jalur instruksi dan pengawasan dari Kepala Sekolah ke Kepala Tata Usaha." />
-                
-                <!-- Garis Koordinasi (Dashed / Putus-putus) -->
-                <path d="M 150,35 L 150,55 L 330,55" class="line line-dashed" data-type="Garis Koordinasi/Konsultasi" data-info="Hubungan koordinasi dan pelaporan antara Dinas Pendidikan dengan pihak sekolah." />
-                <path d="M 330,170 L 410,170" class="line line-dashed" data-type="Garis Koordinasi" data-info="Garis konsultasi antara Mudiroh dengan TPMPS." />
-                <path d="M 420,250 L 520,250" class="line line-dashed" data-type="Garis Koordinasi" data-info="Hubungan kemitraan dan komite penasihat antara Kepala Sekolah dengan Komite Sekolah." />
-                
-                <!-- Tambahkan lekukan garis lainnya di sini nanti sesuai koordinat -->
-            </svg>
+        <div class="tree">
+            <ul>
+                <!-- Level 1: Pimpinan Atas -->
+                <li>
+                    <div class="node-group">
+                        <div class="node box-orange" data-role="Dinas Pendidikan" data-desc="Instansi pembina dan pengawas regulasi pendidikan nasional.">DINAS PENDIDIKAN DAN DINAS TERKAIT</div>
+                        <div class="node box-blue" data-role="Yayasan Al-Hanif" data-desc="Ketua Lajnah Pendidikan selaku penyelenggara utama institusi.">YAYASAN AL-HANIF<br><span class="sub-text">(Ketua Lajnah Pendidikan)</span></div>
+                    </div>
+                    
+                    <!-- Sambungan ke Mudiroh -->
+                    <ul>
+                        <li>
+                            <div class="node box-yellow" data-role="Mudiroh" data-desc="Mudiroh Pendidikan Menengah yang mengawasi jalannya unit pendidikan.">Mudiroh<br><span class="sub-text">Pendidikan Menengah</span></div>
+                            
+                            <!-- Cabang dari Mudiroh ke TPMPS & Kepala Sekolah -->
+                            <ul class="line-dashed-branch"> <!-- Jalur koordinasi ke TPMPS -->
+                                <li class="tpmps-wrapper">
+                                    <div class="node box-green" data-role="TPMPS" data-desc="Tim Penjaminan Mutu Pendidikan Sekolah tingkat Menengah.">TPMPS<br><span class="sub-text">Pendidikan Menengah</span></div>
+                                </li>
+                                
+                                <!-- Jalur turun ke Kepala Sekolah -->
+                                <li class="clear-line">
+                                    <div class="node-group" style="margin-top: 20px;">
+                                        <div class="node box-yellow-border" data-role="Kepala AHIBS" data-desc="Kepala Sekolah Al-Hanif Islamic Boarding School - Putri.">Kepala<br>AHIBS - Putri</div>
+                                        <div class="node box-yellow-border" data-role="Kepala SMAIT" data-desc="Kepala Sekolah SMAIT Puteri Alhanif selaku pimpinan operasional.">Kepala<br>SMAIT Putri</div>
+                                        <div class="node box-orange" data-role="Komite Sekolah" data-desc="Badan mandiri yang mewadahi peran serta masyarakat dan orang tua murid.">KOMITE SEKOLAH</div>
+                                    </div>
 
-            <!-- KOTAK-KOTAK JABATAN (NODES) -->
-            <!-- Level 1 -->
-            <div class="node box-orange" style="top: 10px; left: 50px;" data-role="Dinas Pendidikan" data-desc="Instansi pembina dan pengawas regulasi pendidikan nasional.">DINAS PENDIDIKAN DAN DINAS TERKAIT</div>
-            <div class="node box-blue" style="top: 10px; left: 230px;" data-role="Yayasan Al-Hanif" data-desc="Ketua Lajnah Pendidikan selaku penyelenggara utama institusi.">YAYASAN AL-HANIF<br><span class="sub-text">(Ketua Lajnah Pendidikan)</span></div>
+                                    <!-- Jalur dari Kepala Sekolah ke bawah (Garis Putus-Putus Utama) -->
+                                    <ul class="main-downstream-dashed">
+                                        
+                                        <!-- Level Kepala Tata Usaha -->
+                                        <li>
+                                            <div class="node box-green" data-role="Kepala TU" data-desc="Kepala Tata Usaha yang memimpin bagian administrasi sekolah.">KEPALA TATA USAHA</div>
+                                            
+                                            <!-- Sub Tata Usaha -->
+                                            <ul>
+                                                <li>
+                                                    <div class="node box-orange" data-role="Keuangan" data-desc="Bagian pengelolaan anggaran keuangan sekolah.">KEUANGAN</div>
+                                                </li>
+                                                <li>
+                                                    <div class="node box-orange" data-role="Persuratan" data-desc="Manajemen surat masuk/keluar & urusan kepegawaian.">PERSURATAN & KEPEGAWAIAN</div>
+                                                </li>
+                                                <li>
+                                                    <div class="node box-orange" data-role="Sarpras" data-desc="Pengelolaan data Dapodik dan sarana prasarana sekolah.">SARPRAS & DAPODIK</div>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-            <!-- Level 2 -->
-            <div class="node box-yellow" style="top: 80px; left: 230px;" data-role="Mudiroh" data-desc="Mudiroh Pendidikan Menengah yang mengawasi jalannya unit pendidikan.">Mudiroh<br><span class="sub-text">Pendidikan Menengah</span></div>
+                                        <!-- Level Para Wakasek -->
+                                        <li class="row-wakasek">
+                                            <div class="wakasek-container">
+                                                <div>
+                                                    <div class="node box-orange" data-role="Asisten Kurikulum" data-desc="Membantu pelaksanaan program kerja Wakasek Kurikulum.">ASISTEN KURIKULUM</div>
+                                                </div>
+                                                <div>
+                                                    <div class="node box-green" data-role="Wakasek Kurikulum" data-desc="Wakil Kepala Sekolah urusan Kurikulum dan Kegiatan Belajar Mengajar.">WAKASEK KURIKULUM</div>
+                                                    <ul>
+                                                        <li><div class="node box-orange" data-role="Pengembang Kurikulum" data-desc="Tim perancang dan pengembang kurikulum sekolah.">PENGEMBANG KURIKULUM</div></li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="node box-green" data-role="Wakasek Kesiswaan" data-desc="Wakil Kepala Sekolah urusan Kesiswaan dan Ekstrakurikuler.">WAKASEK KESISWAAN</div>
+                                                    <ul>
+                                                        <li><div class="node box-orange" data-role="Pembina OSIS" data-desc="Pembimbing organisasi intra sekolah.">PEMBINA OSIS</div></li>
+                                                        <li><div class="node box-orange" data-role="Pembina Eskul" data-desc="Koordinator kegiatan ekstrakurikuler sekolah.">PEMBINA ESKUL</div></li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <div class="node box-green" data-role="Wakasek Humas" data-desc="Wakil Kepala Sekolah urusan Hubungan Masyarakat dan Kemitraan.">WAKASEK HUMAS</div>
+                                                    <ul>
+                                                        <li><div class="node box-orange" data-role="PJ Koperasi" data-desc="Penanggung Jawab unit usaha koperasi sekolah.">PJ KOPERASI</div></li>
+                                                        <li><div class="node box-orange" data-role="PJ Website" data-desc="Penanggung Jawab pengelolaan media informasi & website sekolah.">PJ WEBSITE</div></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
 
-            <!-- Level 3 -->
-            <div class="node box-green" style="top: 145px; left: 410px;" data-role="TPMPS" data-desc="Tim Penjaminan Mutu Pendidikan Sekolah tingkat Menengah.">TPMPS<br><span class="sub-text">Pendidikan Menengah</span></div>
+                                        <!-- Level Koordinator, Guru, & Siswa -->
+                                        <li>
+                                            <div class="bottom-group-container">
+                                                <div class="node box-orange" data-role="Koord. BK" data-desc="Bimbingan Konseling dan pendampingan karakter siswi.">KOORD. BK</div>
+                                                <div class="node box-orange" data-role="Kepala Lab" data-desc="Penanggung jawab laboratorium sekolah.">KEPALA LAB</div>
+                                                <div class="node box-orange" data-role="Kepala Perpustakaan" data-desc="Penanggung jawab perpustakaan sekolah.">KEPALA PERPUSTAKAAN</div>
+                                            </div>
+                                            
+                                            <ul class="line-solid-final">
+                                                <li>
+                                                    <div class="node-group">
+                                                        <div class="node box-orange" data-role="Guru" data-desc="Tenaga pendidik profesional mata pelajaran.">GURU</div>
+                                                        <div class="node box-orange" data-role="Wali Kelas" data-desc="Guru yang diserahi tugas membina satu kelas tertentu.">WALI KELAS</div>
+                                                    </div>
+                                                    <ul>
+                                                        <li>
+                                                            <div class="node box-red" data-role="Siswa" data-desc="Seluruh siswi/peserta didik SMAIT Puteri Alhanif.">SISWA</div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-            <!-- Level 4 -->
-            <div class="node box-yellow-border" style="top: 225px; left: 130px;" data-role="Kepala AHIBS" data-desc="Kepala Sekolah Al-Hanif Islamic Boarding School - Putri.">Kepala<br>AHIBS - Putri</div>
-            <div class="node box-yellow-border" style="top: 225px; left: 320px;" data-role="Kepala SMAIT" data-desc="Kepala Sekolah SMAIT Puteri Alhanif selaku pimpinan operasional.">Kepala<br>SMAIT Putri</div>
-            <div class="node box-orange" style="top: 232px; left: 520px;" data-role="Komite Sekolah" data-desc="Badan mandiri yang mewadahi peran serta masyarakat/orang tua murid.">KOMITE SEKOLAH</div>
-
-            <!-- Level 5: TU -->
-            <div class="node box-green" style="top: 360px; left: 580px;" data-role="Kepala TU" data-desc="Kepala Tata Usaha yang memimpin bagian administrasi sekolah.">KEPALA TATA USAHA</div>
-
-            <!-- Level 6: Sub-TU & Wakasek (Contoh sampling posisi) -->
-            <div class="node box-orange" style="top: 420px; left: 450px;" data-role="Keuangan" data-desc="Bagian pengelolaan anggaran keuangan sekolah.">KEUANGAN</div>
-            <div class="node box-green" style="top: 490px; left: 240px;" data-role="Wakasek Kurikulum" data-desc="Wakil Kepala Sekolah urusan Kurikulum dan KBM.">WAKASEK<br>KURIKULUM</div>
-            <div class="node box-green" style="top: 490px; left: 470px;" data-role="Wakasek Kesiswaan" data-desc="Wakil Kepala Sekolah urusan Kesiswaan dan Ekstrakurikuler.">WAKASEK<br>KESISWAAN</div>
-            <div class="node box-green" style="top: 490px; left: 730px;" data-role="Wakasek Humas" data-desc="Wakil Kepala Sekolah urusan Hubungan Masyarakat.">WAKASEK<br>HUMAS</div>
-
-            <!-- Level Bawah (Guru & Siswa) -->
-            <div class="node box-orange" style="top: 720px; left: 210px;" data-role="Guru" data-desc="Tenaga pendidik profesional matapelajaran.">GURU</div>
-            <div class="node box-orange" style="top: 720px; left: 450px;" data-role="Wali Kelas" data-desc="Guru yang diserahi tugas membina satu kelas tertentu.">WALI KELAS</div>
-            <div class="node box-red" style="top: 780px; left: 340px;" data-role="Siswa" data-desc="Seluruh siswi/peserta didik SMAIT Puteri Alhanif.">SISWA</div>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 
-    <!-- MODAL POPUP (MUTLAK UNTUK KOTAK & GARIS) -->
+    <!-- MODAL POPUP DETAIL TUGAS -->
     <div id="detailsModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <div class="modal-badge" id="modalBadge">Jabatan</div>
+            <div class="modal-badge" id="modalBadge">Detail Jabatan</div>
             <h2 id="modalTitle">Nama Bagian</h2>
             <hr>
-            <p id="modalDesc">Detail penjelasan...</p>
+            <p id="modalDesc">Detail penjelasan tugas akan muncul di sini...</p>
         </div>
     </div>
 
