@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organigram Sekolah - Al-Hanif</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>STRUKTUR ORGANISASI SEKOLAH</h1>
+        
+        <div class="tree">
+            <div class="row-level">
+                <div class="node box-yellow" data-role="Yayasan" data-desc="Menyelenggarakan pendidikan, pembinaan, dan penyedia sarana prasarana utama sekolah.">Yayasan Al-Hanif</div>
+                <div class="node box-orange coordinate" data-role="Dinas Pendidikan" data-desc="Instansi pembina dan pengawas regulasi pendidikan nasional.">Dinas Pendidikan</div>
+            </div>
+
+            <div class="row-level">
+                <div class="node box-red coordinate" data-role="Komite Sekolah" data-desc="Mitra sekolah dalam mengakomodasi aspirasi orang tua siswa.">Komite Sekolah</div>
+                <div class="node box-green" data-role="Kepala Sekolah" data-desc="Pemimpin tertinggi satuan pendidikan, bertanggung jawab atas manajemen sekolah.">Kepala Sekolah</div>
+            </div>
+
+            <div class="row-level">
+                <div class="node box-pink" data-role="Ketua TPMPS" data-desc="Tim Penjaminan Mutu Pendidikan Sekolah.">Ketua TPMPS</div>
+                <div class="node box-orange" data-role="Koord. Asrama" data-desc="Mengkoordinasikan kegiatan lingkungan asrama siswa.">Koord. Asrama</div>
+                <div class="node box-blue" data-role="Kepala Tata Usaha" data-desc="Kepala administrasi, surat-menyurat, dan kepegawaian.">Kepala Tata Usaha</div>
+            </div>
+
+            <div class="row-level-group">
+                <div class="sub-group border-dashed">
+                    <div class="node box-green-light" data-role="Keuangan" data-desc="Pengelolaan anggaran belanja sekolah.">Keuangan</div>
+                    <div class="node box-green-light" data-role="Persuratan" data-desc="Manajemen surat masuk/keluar & kepegawaian.">Persuratan & Kepegawaian</div>
+                    <div class="node box-green-light" data-role="Sarpras" data-desc="Pengelolaan data Dapodik dan sarana prasarana.">Sarpras & Dapodik</div>
+                </div>
+
+                <div class="sub-group">
+                    <div class="node box-green-light" data-role="Wakasek Kurikulum" data-desc="Mengatur jadwal pelajaran, kalender akademik, dan KBM.">Wakasek Kurikulum</div>
+                    <div class="node box-green-light" data-role="Wakasek Kesiswaan" data-desc="Menangani kesiswaan, kedisiplinan, dan kegiatan OSIS.">Wakasek Kesiswaan</div>
+                    <div class="node box-green-light" data-role="Wakasek Humas" data-desc="Hubungan masyarakat, industri, dan kemitraan luar.">Wakasek Humas</div>
+                </div>
+            </div>
+
+            <div class="row-level">
+                <div class="node box-green-light" data-role="Koord. BK" data-desc="Bimbingan Konseling siswa.">Koord. BK</div>
+                <div class="node box-green-light" data-role="Guru" data-desc="Tenaga pendidik mata pelajaran.">Guru</div>
+                <div class="node box-green-light" data-role="Wali Kelas" data-desc="Pembina dan penanggung jawab kelas tertentu.">Wali Kelas</div>
+                <div class="node box-red" data-role="Siswa" data-desc="Peserta didik.">Siswa</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Jabatan</h2>
+            <hr>
+            <p id="modalDesc">Detail tugas akan tampil di sini...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
