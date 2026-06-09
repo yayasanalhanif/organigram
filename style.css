@@ -1,109 +1,149 @@
+/* Tema Terang Sesuai Gambar */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1a1a1a;
-    color: #fff;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
     margin: 0;
     padding: 20px;
 }
 
 .container {
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
     text-align: center;
 }
 
 h1 {
-    margin-bottom: 30px;
-    font-size: 24px;
-}
-
-/* Flexbox Layout untuk Organigram */
-.tree {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-}
-
-.row-level, .sub-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    position: relative;
-}
-
-.row-level-group {
-    display: flex;
-    gap: 50px;
-}
-
-/* Style Kotak / Node (Bisa diklik) */
-.node {
-    padding: 15px 20px;
-    border-radius: 6px;
+    font-size: 26px;
+    color: #222;
+    letter-spacing: 1px;
+    line-height: 1.4;
     font-weight: bold;
-    color: black;
-    cursor: pointer;
-    min-width: 140px;
+    margin-bottom: 40px;
+}
+
+/* Kanvas Posisi Absolut untuk Akurasi Gambar */
+.organigram-wrapper {
+    position: relative;
+    width: 1000px;
+    height: 900px;
+    margin: 0 auto;
+}
+
+/* Kotak Jabatan / Nodes */
+.node {
+    position: absolute;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    color: #222222;
+    border: 1.5px solid #333333;
+    cursor: pointer;
+    min-width: 150px;
+    max-width: 180px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
     transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 10;
+    background-color: #fff;
 }
 
 .node:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(255,255,255,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-/* Penyesuaian Warna sesuai Gambar */
-.box-yellow { background-color: #ffea00; }
-.box-orange { background-color: #ff6d00; }
-.box-red { background-color: #ff1744; color: white; }
-.box-green { background-color: #00e676; }
-.box-green-light { background-color: #76ff03; }
-.box-pink { background-color: #ff80ab; }
-.box-blue { background-color: #00e5ff; }
-
-/* Indikator Garis Hubungan (Garis Putus vs Lurus) */
-.coordinate {
-    outline: 2px dashed #ffea00; /* Garis koordinasi luar jika diperlukan */
-}
-.border-dashed {
-    border: 2px dashed #00e5ff;
-    padding: 10px;
-    border-radius: 8px;
+.sub-text {
+    font-size: 10px;
+    font-weight: normal;
+    display: block;
+    margin-top: 2px;
 }
 
-/* STYLE MODAL POPUP */
+/* Pewarnaan Spesifik Berdasarkan Gambar */
+.box-orange { background-color: #e67e22; color: #fff; }
+.box-blue { background-color: #00a2e8; color: #fff; }
+.box-yellow { background-color: #fff200; }
+.box-yellow-border { background-color: #fff200; border: 2px solid #000; }
+.box-green { background-color: #4da66a; color: #fff; }
+.box-red { background-color: #e74c3c; color: #fff; border-radius: 12px; }
+
+/* SVG DAN PENGATURAN GARIS */
+.lines-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    pointer-events: none; /* Izinkan klik menembus area kosong SVG */
+}
+
+/* Garis itu sendiri agar bisa merespon klik */
+.line {
+    fill: none;
+    stroke: #333333;
+    stroke-width: 2.5;
+    cursor: pointer;
+    pointer-events: stroke; /* Hanya garisnya saja yang menangkap event klik */
+    transition: stroke 0.2s, stroke-width 0.2s;
+}
+
+.line-solid {
+    stroke-dasharray: none;
+}
+
+.line-dashed {
+    stroke-dasharray: 6, 4; /* Efek putus-putus */
+}
+
+/* Efek saat Garis Sorot/Hover */
+.line:hover {
+    stroke: #e74c3c; /* Berubah merah saat disorot */
+    stroke-width: 4.5;
+}
+
+/* MODAL DESIGN */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 100; 
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0; top: 0;
     width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-    background-color: #2d2d2d;
+    background-color: #ffffff;
     margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
+    padding: 25px;
     border-radius: 8px;
+    width: 90%; max-width: 450px;
     position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    text-align: left;
+    color: #333;
+}
+
+.modal-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    background-color: #f1f2f6;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    color: #57606f;
 }
 
 .close-btn {
     position: absolute;
     right: 20px; top: 15px;
-    color: #aaa;
+    color: #7f8c8d;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.close-btn:hover { color: #fff; }
+.close-btn:hover { color: #000; }
